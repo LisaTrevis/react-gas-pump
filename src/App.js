@@ -22,6 +22,8 @@ const App = () => {
   }, [gallons]);
 
   const handleClick = (e) => {
+    setDollars(0);
+    setGallons(0);
     setPrice(parseFloat(e.target.value));
   };
 
@@ -55,7 +57,7 @@ const App = () => {
             onClick={handleClick}
           />
           <span className="label">
-            <label htmlFor="unleaded">Unleaded: $3.99</label>
+            <label htmlFor="unleaded">Unleaded: $3.49</label>
           </span>
         </div>
         <div className="gas-type">
