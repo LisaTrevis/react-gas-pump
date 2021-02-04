@@ -43,7 +43,7 @@ const App = () => {
             onClick={handleClick}
           />
           <span className="label">
-            <label htmlFor="regular">Regular</label>
+            <label htmlFor="regular">Regular: $2.99</label>
           </span>
         </div>
         <div className="gas-type">
@@ -55,7 +55,7 @@ const App = () => {
             onClick={handleClick}
           />
           <span className="label">
-            <label htmlFor="unleaded">Unleaded</label>
+            <label htmlFor="unleaded">Unleaded: $3.99</label>
           </span>
         </div>
         <div className="gas-type">
@@ -67,7 +67,7 @@ const App = () => {
             onClick={handleClick}
           />
           <span className="label">
-            <label htmlFor="diesel">Diesel</label>
+            <label htmlFor="diesel">Diesel: $3.99</label>
           </span>
         </div>
       </div>
