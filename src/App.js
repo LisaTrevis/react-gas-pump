@@ -1,44 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { FaGasPump } from "react-icons/fa";
 
-function App() {
-  // const [isGasPumping, setIsGasPumping] = useState(false);
+const App = () => {
   const [gallons, setGallons] = useState(0);
   const [dollars, setDollars] = useState(0);
   const [price, setPrice] = useState(2.99);
+  const [timeoutValue, setTimeoutValue] = useState();
+  const [isPumping, setIsPumping] = useState(false);
+
+  useEffect(() => {
+    if (isPumping) {
+      setTimeoutValue(setInterval(() => pumpGas(), 250));
+    } else {
+      clearInterval(timeoutValue);
+    }
+    return () => clearInterval(timeoutValue);
+  }, [isPumping]);
+
+  useEffect(() => {
+    setDollars(price * gallons);
+  }, [gallons]);
 
   const handleClick = (e) => {
     setPrice(parseFloat(e.target.value));
   };
 
-  // const handlePump = () => {
-  //   if (!isGasPumping) {
-  //     setInterval(pumpGas, 1000);
-  //     setIsGasPumping(true);
-  //   }
-  //   if (isGasPumping) {
-  //     clearInterval(pumpGas);
-  //     setIsGasPumping(false);
-  //   }
-  // };
-
-  const startGas = () => {
-    setInterval(pumpGas, 1000);
-  };
-
-  const stopGas = () => {
-    clearInterval(startGas);
-  };
-
-  const pumpGas = () => {
-    console.log("hello");
-    setGallons((gallons + 0.1).toFixed(1));
-    console.log(gallons);
-    setDollars((price * gallons).toFixed(2));
-    console.log(dollars);
+  const pumpGas = (gallons, price, dollars) => {
+    setGallons((prevGallons) => prevGallons + 0.1);
   };
 
   return (
-    <div>
+    <section>
       <h1>Gas Pump</h1>
       <div className="gas-prices">
         <div className="gas-type">
@@ -50,7 +42,9 @@ function App() {
             defaultChecked
             onClick={handleClick}
           />
-          <label htmlFor="regular">Regular</label>
+          <span className="label">
+            <label htmlFor="regular">Regular</label>
+          </span>
         </div>
         <div className="gas-type">
           <input
@@ -60,7 +54,9 @@ function App() {
             value="3.49"
             onClick={handleClick}
           />
-          <label htmlFor="unleaded">Unleaded</label>
+          <span className="label">
+            <label htmlFor="unleaded">Unleaded</label>
+          </span>
         </div>
         <div className="gas-type">
           <input
@@ -70,22 +66,39 @@ function App() {
             value="3.99"
             onClick={handleClick}
           />
-          <label htmlFor="diesel">Diesel</label>
+          <span className="label">
+            <label htmlFor="diesel">Diesel</label>
+          </span>
         </div>
       </div>
       <div className="meters">
-        <p className="gallon-counter">Gallons: {gallons}</p>
-        <p className="dollar-counter">Dollars: ${dollars}</p>
+        <div className="gallon-counter">
+          <p>Gallons:</p>
+          <p>{gallons.toFixed(1)}</p>
+        </div>
+        <div className="dollar-counter">
+          <p>Dollars:</p>
+          <p>${dollars.toFixed(2)}</p>
+        </div>
       </div>
-      {/* <button type="button" className="btn" onClick={handlePump}>Start/Stop</button>*/}
-      <button type="button" className="btn" onClick={() => startGas()}>
-        Start
-      </button>
-      <button type="button" className="btn" onClick={() => stopGas()}>
-        Stop
-      </button>
-    </div>
+      <div className="buttons">
+        <button
+          type="button"
+          className="btn btn-start"
+          onClick={() => setIsPumping(true)}
+        >
+          <FaGasPump className="icon" />
+        </button>
+        <button
+          type="button"
+          className="btn btn-stop"
+          onClick={() => setIsPumping(false)}
+        >
+          <FaGasPump className="icon" />
+        </button>
+      </div>
+    </section>
   );
-}
+};
 
 export default App;
