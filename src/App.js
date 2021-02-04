@@ -54,13 +54,13 @@ const App = () => {
           <input
             type="radio"
             name="gastype"
-            id="unleaded"
+            id="premium"
             value="3.49"
             onClick={handleClick}
           />
           <span className="label">
-            <label htmlFor="unleaded">
-              Unleaded: <span className="price">$3.49</span>
+            <label htmlFor="premium">
+              Premium: <span className="price">$3.49</span>
             </label>
           </span>
         </div>
