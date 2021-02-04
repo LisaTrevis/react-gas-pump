@@ -27,7 +27,7 @@ const App = () => {
     setPrice(parseFloat(e.target.value));
   };
 
-  const pumpGas = (gallons, price, dollars) => {
+  const pumpGas = () => {
     setGallons((prevGallons) => prevGallons + 0.1);
   };
 
@@ -45,7 +45,9 @@ const App = () => {
             onClick={handleClick}
           />
           <span className="label">
-            <label htmlFor="regular">Regular: $2.99</label>
+            <label htmlFor="regular">
+              Regular: <span className="price">$2.99</span>
+            </label>
           </span>
         </div>
         <div className="gas-type">
@@ -57,7 +59,9 @@ const App = () => {
             onClick={handleClick}
           />
           <span className="label">
-            <label htmlFor="unleaded">Unleaded: $3.49</label>
+            <label htmlFor="unleaded">
+              Unleaded: <span className="price">$3.49</span>
+            </label>
           </span>
         </div>
         <div className="gas-type">
@@ -69,7 +73,9 @@ const App = () => {
             onClick={handleClick}
           />
           <span className="label">
-            <label htmlFor="diesel">Diesel: $3.99</label>
+            <label htmlFor="diesel">
+              Diesel: <span className="price">$3.99</span>
+            </label>
           </span>
         </div>
       </div>
@@ -84,20 +90,23 @@ const App = () => {
         </div>
       </div>
       <div className="buttons">
-        <button
-          type="button"
-          className="btn btn-start"
-          onClick={() => setIsPumping(true)}
-        >
-          <FaGasPump className="icon" />
-        </button>
-        <button
-          type="button"
-          className="btn btn-stop"
-          onClick={() => setIsPumping(false)}
-        >
-          <FaGasPump className="icon" />
-        </button>
+        {isPumping ? (
+          <button
+            type="button"
+            className="btn btn-stop"
+            onClick={() => setIsPumping(false)}
+          >
+            <FaGasPump className="icon" />
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="btn btn-start"
+            onClick={() => setIsPumping(true)}
+          >
+            <FaGasPump className="icon" />
+          </button>
+        )}
       </div>
     </section>
   );
