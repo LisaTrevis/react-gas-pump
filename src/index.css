@@ -5,8 +5,9 @@ Variables
 */
 
 :root {
-  --clr-bg: rgb(250, 250, 35);
+  --clr-bg: rgb(247, 245, 245);
   --clr-app-bg: rgb(247, 245, 245);
+  --clr-btn-bg: darkgray;
   --clr-lrg-txt: rgb(58, 57, 57);
   --clr-small-txt: rgb(16, 16, 16);
   --clr-light-txt: rgb(247, 245, 245);
@@ -60,7 +61,7 @@ h1 {
   flex-wrap: wrap;
 }
 
-.gas-type:nth-child(1) {
+/* .gas-type:nth-child(1) {
   background-color: red;
 }
 .gas-type:nth-child(2) {
@@ -68,28 +69,37 @@ h1 {
 }
 .gas-type:nth-child(3) {
   background-color: blue;
-}
+} */
 
-.gas-type {
+.gas-type-btn {
+  border-radius: 10px;
   margin-top: 10px;
   height: 80px;
   width: 60%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
   flex-wrap: wrap;
-  justify-content: center;
-}
-
-input[type="radio"] {
-  font-size: 2rem;
-  padding-top: 10px;
-  margin: 0 auto;
-}
-
-.label {
+  text-align: center;
+  border: 2px solid blue;
   font-size: 20px;
-  margin-top: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
+
+.price {
+  display: block;
+  font-size: 18px;
+}
+
+.active {
+  background-color: rgb(95, 95, 247);
+}
+
+/* button {
+  font-size: 25px;
+} */
 
 .meters {
   display: flex;
@@ -99,32 +109,39 @@ input[type="radio"] {
 
 .gallon-counter,
 .dollar-counter {
-  background-color: var(--clr-lrg-txt);
+  background-color: var(--clr-btn-bg);
   width: 40%;
-  color: var(--clr-app-bg);
+  color: var(--clr-small-txt);
+  padding: 8px;
+  font-weight: bold;
+  border-radius: 10px;
 }
 
-.buttons {
+.startstop-btn {
   display: flex;
   justify-content: space-evenly;
   margin: 1rem;
 }
 
-.icon,
-.btn-p {
+.icon {
   font-size: 4rem;
   color: var(--clr-lrg-txt);
 }
 
 button:focus {
   outline: none;
-  box-shadow: 0 0 0 2px var(--clr-btn-dark);
+  /* box-shadow: 0 0 0 2px var(--clr-btn-dark); */
+}
+
+.btn-start,
+.btn-stop {
+  border-radius: 10px;
+  padding: 5px 20px;
 }
 
 .btn-start {
   background-color: lightgreen;
 }
-
 .btn-stop {
   background-color: lightcoral;
 }

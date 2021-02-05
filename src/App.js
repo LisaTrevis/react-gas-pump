@@ -7,6 +7,7 @@ const App = () => {
   const [price, setPrice] = useState(2.99);
   const [timeoutValue, setTimeoutValue] = useState();
   const [isPumping, setIsPumping] = useState(false);
+  const [activeKey, setActiveKey] = useState(0);
 
   useEffect(() => {
     if (isPumping) {
@@ -25,6 +26,7 @@ const App = () => {
     setDollars(0);
     setGallons(0);
     setPrice(parseFloat(e.target.value));
+    setActiveKey(parseInt(e.target.getAttribute("data-key")));
   };
 
   const pumpGas = () => {
@@ -35,49 +37,33 @@ const App = () => {
     <section>
       <h1>Gas Pump</h1>
       <div className="gas-prices">
-        <div className="gas-type">
-          <input
-            type="radio"
-            name="gastype"
-            id="regular"
-            value="2.99"
-            defaultChecked
-            onClick={handleClick}
-          />
-          <span className="label">
-            <label htmlFor="regular">
-              Regular: <span className="price">$2.99</span>
-            </label>
-          </span>
-        </div>
-        <div className="gas-type">
-          <input
-            type="radio"
-            name="gastype"
-            id="premium"
-            value="3.49"
-            onClick={handleClick}
-          />
-          <span className="label">
-            <label htmlFor="premium">
-              Premium: <span className="price">$3.49</span>
-            </label>
-          </span>
-        </div>
-        <div className="gas-type">
-          <input
-            type="radio"
-            name="gastype"
-            id="diesel"
-            value="3.99"
-            onClick={handleClick}
-          />
-          <span className="label">
-            <label htmlFor="diesel">
-              Diesel: <span className="price">$3.99</span>
-            </label>
-          </span>
-        </div>
+        <button
+          data-key="1"
+          type="button"
+          className={activeKey === 1 ? "gas-type-btn active" : "gas-type-btn"}
+          value="2.99"
+          onClick={handleClick}
+        >
+          Regular <span className="price">$2.99</span>
+        </button>
+        <button
+          data-key="2"
+          type="button"
+          className={activeKey === 2 ? "gas-type-btn active" : "gas-type-btn"}
+          value="3.49"
+          onClick={handleClick}
+        >
+          Premium <span className="price">$3.49</span>
+        </button>
+        <button
+          data-key="3"
+          type="button"
+          className={activeKey === 3 ? "gas-type-btn active" : "gas-type-btn"}
+          value="3.99"
+          onClick={handleClick}
+        >
+          Diesel <span className="price">$3.99</span>
+        </button>
       </div>
       <div className="meters">
         <div className="gallon-counter">
@@ -89,7 +75,7 @@ const App = () => {
           <p>${dollars.toFixed(2)}</p>
         </div>
       </div>
-      <div className="buttons">
+      <div className="startstop-btn">
         {isPumping ? (
           <button
             type="button"
