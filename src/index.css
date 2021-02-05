@@ -6,7 +6,7 @@ Variables
 
 :root {
   --clr-bg: rgb(247, 245, 245);
-  --clr-app-bg: rgb(247, 245, 245);
+  --clr-app-bg: rgb(197, 223, 240);
   --clr-btn-bg: darkgray;
   --clr-lrg-txt: rgb(58, 57, 57);
   --clr-small-txt: rgb(16, 16, 16);
@@ -48,11 +48,13 @@ section {
   height: 100%;
   margin: 2rem auto;
   text-align: center;
+  border-radius: 10px;
 }
 
 h1 {
   font-size: 3rem;
   color: var(--clr-lrg-txt);
+  padding-top: 2rem;
 }
 
 .gas-prices {
@@ -101,10 +103,6 @@ h1 {
   background-color: rgb(95, 95, 247);
 }
 
-/* button {
-  font-size: 25px;
-} */
-
 .meters {
   display: flex;
   justify-content: space-evenly;
@@ -125,6 +123,11 @@ h1 {
   display: flex;
   justify-content: space-evenly;
   margin: 1rem;
+  padding-bottom: 2rem;
+}
+
+.startstop-btn:hover {
+  cursor: pointer;
 }
 
 .icon {
