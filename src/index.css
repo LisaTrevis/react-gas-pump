@@ -126,10 +126,6 @@ h1 {
   padding-bottom: 2rem;
 }
 
-.startstop-btn:hover {
-  cursor: pointer;
-}
-
 .icon {
   font-size: 4rem;
   color: var(--clr-lrg-txt);
@@ -151,4 +147,9 @@ button:focus {
 }
 .btn-stop {
   background-color: lightcoral;
+}
+
+.btn-start:hover,
+.btn-stop:hover {
+  cursor: pointer;
 }
