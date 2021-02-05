@@ -88,6 +88,10 @@ h1 {
   text-transform: uppercase;
 }
 
+.gas-type-btn:hover {
+  cursor: pointer;
+}
+
 .price {
   display: block;
   font-size: 18px;
