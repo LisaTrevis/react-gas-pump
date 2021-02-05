@@ -6,11 +6,17 @@ Variables
 
 :root {
   --clr-bg: rgb(247, 245, 245);
-  --clr-app-bg: rgb(197, 223, 240);
-  --clr-btn-bg: darkgray;
+  --clr-app-bg: rgb(247, 245, 245);
+  /* --clr-app-bg: rgb(197, 223, 240); */
   --clr-lrg-txt: rgb(58, 57, 57);
   --clr-small-txt: rgb(16, 16, 16);
   --clr-light-txt: rgb(247, 245, 245);
+  --clr-btn-bg: #a1c4ee;
+  --clr-meter-bg: rgb(146, 144, 144);
+  --clr-border-btn: rgb(16, 16, 16);
+  --clr-active-btn: #1779f1;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 /*
@@ -74,8 +80,9 @@ h1 {
 } */
 
 .gas-type-btn {
+  background-color: var(--clr-btn-bg);
   border-radius: 10px;
-  margin-top: 10px;
+  margin-top: 20px;
   height: 80px;
   width: 60%;
   display: flex;
@@ -84,14 +91,15 @@ h1 {
   flex-direction: column;
   flex-wrap: wrap;
   text-align: center;
-  border: 2px solid blue;
   font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
+  box-shadow: var(--dark-shadow);
 }
 
 .gas-type-btn:hover {
   cursor: pointer;
+  border: 4px solid var(--clr-border-btn);
 }
 
 .price {
@@ -100,7 +108,8 @@ h1 {
 }
 
 .active {
-  background-color: rgb(95, 95, 247);
+  background-color: var(--clr-active-btn);
+  box-shadow: none;
 }
 
 .meters {
@@ -111,7 +120,7 @@ h1 {
 
 .gallon-counter,
 .dollar-counter {
-  background-color: var(--clr-btn-bg);
+  background-color: var(--clr-meter-bg);
   width: 40%;
   color: var(--clr-small-txt);
   padding: 8px;
@@ -133,7 +142,7 @@ h1 {
 
 button:focus {
   outline: none;
-  /* box-shadow: 0 0 0 2px var(--clr-btn-dark); */
+  box-shadow: 0 0 0 2px var(--clr-btn-dark);
 }
 
 .btn-start,
@@ -152,4 +161,21 @@ button:focus {
 .btn-start:hover,
 .btn-stop:hover {
   cursor: pointer;
+  box-shadow: var(--dark-shadow);
+  border: 2px solid black;
+}
+
+@media screen and (min-width: 700px) {
+  .gallon-counter p,
+  .dollar-counter p {
+    display: inline-block;
+    padding: 20px 0;
+  }
+
+  .gallon-counter,
+  .dollar-counter {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 1.5rem;
+  }
 }
