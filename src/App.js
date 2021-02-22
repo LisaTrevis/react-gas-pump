@@ -13,6 +13,10 @@ const App = () => {
     type: 'placeholder',
   })
 
+  if (dollars === NaN) {
+    setDollars(0)
+  }
+
   const showAlert = (type = '', msg = '') => {
     setAlert({ type, msg })
   }
@@ -75,6 +79,7 @@ const App = () => {
 
   useEffect(() => {
     setDollars(price * gallons)
+    console.log(dollars)
   }, [gallons])
 
   const pumpGas = () => {
