@@ -78,7 +78,7 @@ const App = () => {
   }, [isPumping])
 
   useEffect(() => {
-    setDollars(price * gallons)
+    setDollars(Math.round((price * gallons + Number.EPSILON) * 100) / 100)
     console.log(dollars)
   }, [gallons])
 
