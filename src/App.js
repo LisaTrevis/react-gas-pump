@@ -9,7 +9,7 @@ const App = () => {
   const [isPumping, setIsPumping] = useState(false)
   const [activeKey, setActiveKey] = useState('')
   const [alert, setAlert] = useState({
-    msg: 'Please choose a gas type:',
+    msg: 'Please choose a gas type.',
     type: 'placeholder',
   })
 
