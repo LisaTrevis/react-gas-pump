@@ -13,7 +13,7 @@ const App = () => {
     type: 'placeholder',
   })
 
-  if (dollars === NaN) {
+  if (dollars === !isNaN) {
     setDollars(0)
   }
 
